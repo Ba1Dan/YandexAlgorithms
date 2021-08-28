@@ -16,6 +16,7 @@ public class B {
         Map<String, Integer> map = new HashMap<>();
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         PrintWriter writer = new PrintWriter(System.out);
+
         int c;
         List<Character> list = new ArrayList<>();
         while ((c = reader.read()) != -1) {
@@ -28,12 +29,13 @@ public class B {
                 String word = stringBuilder.toString();
                 list.clear();
 
-                map.compute(word, (key, total) -> {
-                    int count = total == null ? 0 : total + 1;
-                    writer.print(count);
-                    writer.print(' ');
-                    return count;
-                });
+                if (map.containsKey(word)) {
+                    map.put(word, map.get(word) + 1);
+                } else {
+                    map.put(word, 0);
+                }
+                writer.print(map.get(word));
+                writer.print(' ');
             }
             else {
                 list.add((char) c);
