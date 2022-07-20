@@ -1,4 +1,4 @@
-package homework_3;
+package homework3;
 
 import java.io.BufferedReader;
 import java.io.IOException;
